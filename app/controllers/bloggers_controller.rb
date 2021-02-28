@@ -13,8 +13,13 @@ class BloggersController < ApplicationController
     end 
 
     def create 
-        new_blogger = Blogger.create(blogger_params)
-        redirect_to blogger_path(new_blogger)
+        @new_blogger = Blogger.create(blogger_params)
+        if @new_blogger.valid?
+            redirect_to blogger_path(@new_blogger)
+        else
+            flash[:error] = @new_blogger.errors.full_messages
+            redirect_to new_blogger_path(@new_blogger)
+        end
         
     end 
 
