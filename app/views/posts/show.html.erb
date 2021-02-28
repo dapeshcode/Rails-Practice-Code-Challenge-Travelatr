@@ -3,4 +3,4 @@
 <p>Content: <%=@post.content %></p>
 <p>Likes: <%=@post.likes %></p>
 
-<%= button_to 'like', like_path(@post), method: :post%>
+<%= button_to 'like', like_path(@post), method: :patch%>
