@@ -10,19 +10,15 @@ class PostsController < ApplicationController
   end
 
   def create
-    new_post = Post.create!(post_params)
-    redirect_to post_path(new_post)
+    @new_post = Post.create(post_params)
+    if @new_post.valid?
+      redirect_to post_path(@new_post)
+    else
+      flash[:error] = @new_post.errors.full_messages
+      redirect_to new_post_path(@new_post)
+    end
   end
 
-  # def create
-  #   @post = Post.new(post_params)
-
-  #   if @post.save
-  #     redirect_to post_path(@post)
-  #   else
-  #     render :new
-  #   end
-  # end
 
   def show
     @post = Post.find(params[:id])

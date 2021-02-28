@@ -1,5 +1,10 @@
 <h2>Create new Post</h2>
 
+<% if flash[:error] %>
+    <% flash[:error].each do |e| %>
+        <%= e %>
+    <% end %>
+<% end %>
 
 
 <%= form_for @post do |f|%>
