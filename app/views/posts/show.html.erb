@@ -2,3 +2,5 @@
 <h3>Title: <%= @post.title %></h3>
 <p>Content: <%=@post.content %></p>
 <p>Likes: <%=@post.likes %></p>
+
+<%= button_to 'like', like_path(@post), method: :post%>
