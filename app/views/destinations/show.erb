@@ -1,4 +1,14 @@
-<h2>Destinations<h2>
+<h2>🚎 Destinations 🛳<h2>
 
 <h3><%= @destination.name %></h3>
 <p>Country: <%=@destination.country %></p>
+<p>Featured Post: <%= link_to @destination.featured_post.title, post_path(@destination.featured_post) %></p>
+Recent: <% @destination.most_recent_5.each do |d| %>
+    <hr>
+    <li><%= d.title %></li>
+    <hr>
+    <% end%>
+    <p>Average Age: <%= @destination.average_age %></p>
+    
+
+
