@@ -9,20 +9,20 @@ class PostsController < ApplicationController
     @bloggers = Blogger.all
   end
 
-  # def create
-  #   new_post = Post.create(post_params)
-  #   redirect_to post_path(new_post)
-  # end
-
   def create
-    @post = Post.new(post_params)
-
-    if @post.save
-      redirect_to post_path(@post)
-    else
-      render :new
-    end
+    new_post = Post.create!(post_params)
+    redirect_to post_path(new_post)
   end
+
+  # def create
+  #   @post = Post.new(post_params)
+
+  #   if @post.save
+  #     redirect_to post_path(@post)
+  #   else
+  #     render :new
+  #   end
+  # end
 
   def show
     @post = Post.find(params[:id])
