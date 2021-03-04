@@ -5,10 +5,9 @@ class Post < ApplicationRecord
 
     validates :title, presence: true 
     validates :content, presence: true, length: {minimum: 100}
-    after_initialize :init
 
     def init
-        self.likes = 0 if self.likes.nil?
+        self.likes = 0
     end
 
 end
