@@ -12,11 +12,7 @@ class Blogger < ApplicationRecord
     end
   
     def total_likes
-       
-      self.posts.inject(self.posts[0].likes) do |sum, post|
-        
-          sum + post.likes
-      end
+       self.posts.sum{|p| p.likes}
     end
   
     def top_5_destinations
