@@ -7,7 +7,7 @@ class Post < ApplicationRecord
     validates :content, presence: true, length: {minimum: 100}
 
     def init
-        self.likes = 0
+        self.likes = 0 if self.likes == nil
     end
 
 end
